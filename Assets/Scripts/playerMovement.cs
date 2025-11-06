@@ -7,7 +7,7 @@ public class playerMovement : MonoBehaviour
     private Rigidbody2D rb;
     public int jumpForce = 100;
     public float speed = 0.05f;
-    public float jumpCooldownTime = 5f;
+    public float jumpCooldown = 5f;
     private float nextJumpTime = 0;
 
     void Start()
@@ -46,7 +46,7 @@ public class playerMovement : MonoBehaviour
 
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 
-            nextJumpTime = Time.time + jumpCooldownTime;
+            nextJumpTime = Time.time + jumpCooldown;
 
         }
 

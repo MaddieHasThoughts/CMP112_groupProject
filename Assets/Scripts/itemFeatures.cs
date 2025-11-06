@@ -3,15 +3,12 @@ using UnityEngine;
 public class itemFeatures : MonoBehaviour
 {
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        //when collides with player collider, add 1 point
-        
-        //insert point code here
-
         //end instance
-       
-        Destroy(gameObject);
-
+        if (other.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
