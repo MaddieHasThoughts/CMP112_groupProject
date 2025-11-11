@@ -32,6 +32,13 @@ public class playerScoreManager : MonoBehaviour
             SceneManager.LoadScene("LevelOne");
         }
 
+        if (playerScore >= 5 && SceneManager.GetActiveScene().name == "LevelOne")
+        {
+
+            SceneManager.LoadScene("endGame");
+
+        }
+
     }
  
 }
