@@ -7,7 +7,7 @@ public class playerMovement : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField] private AudioSource jumpSFX;
     [SerializeField] private int jumpForce = 20;
-    [SerializeField] private float speed = 1f;
+    [SerializeField] private float speed = 0.75f;
     [SerializeField] private float jumpCooldown = 0.5f;
     private float nextJumpTime = 0;
 
