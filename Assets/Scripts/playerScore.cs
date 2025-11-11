@@ -1,5 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class playerScoreManager : MonoBehaviour
 {
@@ -11,19 +13,30 @@ public class playerScoreManager : MonoBehaviour
     {
 
         playerScore = 0; //initialise
-
     }
 
     private void OnTriggerEnter2D (Collider2D other)
     {
-        //if colliding with artifact, then add point (stop adding points with floor collision T^T )
+        //if colliding with artifact, then add point
 
         if (other.CompareTag("Artifact") && Time.time >= nextScoreTime)
         {
+            scoreUI.Instance.addPoint();
             playerScore ++;
             nextScoreTime = Time.time + scoreCooldown;
+        }
 
-            Debug.Log("Yay! Points: " + playerScore); //remove before submission!!
+        //Move to next level
+        if (playerScore >= 7)
+        {
+            SceneManager.LoadScene("LevelOne");
+        }
+
+        if (playerScore >= 5 && SceneManager.GetActiveScene().name == "LevelOne")
+        {
+
+            SceneManager.LoadScene("endGame");
+
         }
 
     }

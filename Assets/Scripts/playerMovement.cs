@@ -3,11 +3,13 @@ using UnityEngine.InputSystem;
 
 public class playerMovement : MonoBehaviour
 {
+    private Vector2 movementDirection;
 
     private Rigidbody2D rb;
-    public int jumpForce = 100;
-    public float speed = 0.05f;
-    public float jumpCooldown = 5f;
+    [SerializeField] private AudioSource jumpSFX;
+    public int jumpForce = 20;
+    public float speed = 0.75f;
+    [SerializeField] private float jumpCooldown = 0.5f;
     private float nextJumpTime = 0;
 
     void Start()
@@ -43,6 +45,7 @@ public class playerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && Time.time >= nextJumpTime)
         {
+            jumpSFX.Play();
 
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 
