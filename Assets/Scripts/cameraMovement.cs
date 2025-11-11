@@ -9,9 +9,8 @@ public class cameraMovement : MonoBehaviour
     void Update()
     {
 
-        transform.position = new Vector3(playerPosition.position.x, playerPosition.position.y, -10); //camera follows player
-
-
+        //camera follows player
+        transform.position = new Vector3(playerPosition.position.x, playerPosition.position.y + 1, -10); 
 
     }
 }
